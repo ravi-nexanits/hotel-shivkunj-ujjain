@@ -25,7 +25,8 @@ grep -rn "Pending\|Verify>" app components content
 - ~~Room categories, guests, beds, starting prices~~: confirmed 2026-10-03 (Deluxe Room: 2 adults, 1 king-size bed, from ₹2,800/night; Family Room: 3 + 1 guests, 1 king-size + 1 single bed, from ₹3,499/night).
 - ~~Child / extras policy~~: confirmed 2026-10-03 (Family Room: 3 adults + 1 child, child at no extra charge; extra bed and other services charged extra).
 - ~~Room sizes, check-in/out~~: confirmed 2026-10-03 (Deluxe 160 sq ft, Family 180 sq ft; check-in 11:00 AM, check-out 9:00 AM).
-- **Child policy for the Deluxe Room**; extra-bed rate if it should be published. → `data/rooms.ts`
+- ~~Deluxe Room child policy~~: confirmed 2026-10-03 (2 adults + 1 child, child at no extra charge).
+- Extra-bed rate, if it should be published. → `data/rooms.ts`
 - Whether starting prices vary by date/season (the Rooms page says "may vary by date" — adjust if not).
 - **Distance from Shivkunj** to Mahakaleshwar, Mahakal Lok, Ram Ghat, Kal Bhairav, Harsiddhi and Sandipani Ashram. → `data/destinations.ts`
 - **Genuine guest reviews** (with permission) and the public Google reviews link. → `data/testimonials.ts`

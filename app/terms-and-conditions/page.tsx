@@ -81,7 +81,10 @@ export default function TermsPage() {
           heading: "Children, Extra Beds and Additional Services",
           body: (
             <ul>
-              <li>In the Family Room, one child can stay at no extra charge, within the room&apos;s occupancy of 3 adults + 1 child.</li>
+              <li>
+                One child can stay at no extra charge in each room, within its occupancy: Deluxe Room 2 adults + 1 child, Family
+                Room 3 adults + 1 child.
+              </li>
               <li>{hotel.extrasPolicy}. Please request them in advance so we can arrange them.</li>
               <li>Room occupancy limits must be respected. Additional guests are allowed only with the hotel&apos;s approval.</li>
             </ul>
