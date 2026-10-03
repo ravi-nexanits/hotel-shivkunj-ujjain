@@ -39,9 +39,9 @@ export const hotel = {
   geo: null as null | { lat: number; lng: number },
 
   // Confirmed by the hotel 2026-10-03. Display text + 24h value for schema.
-  checkIn: "11:00 PM",
+  checkIn: "11:00 AM",
   checkOut: "9:00 AM",
-  checkInTime24: "23:00",
+  checkInTime24: "11:00",
   checkOutTime24: "09:00",
   /** Shown as "Last updated" on the policy pages */
   policiesUpdated: "2026-10-03",
