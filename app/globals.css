@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tokens from Shivkunj_website_design_guide.md §3–§7 and §39 */
+:root {
+  --color-brand-primary: #6e1f2b;
+  --color-brand-primary-deep: #571822; /* pressed / active state of primary */
+  --color-brand-accent: #e89b3c;
+
+  --color-text-primary: #2a211c;
+  --color-text-secondary: #e89b3c;
+  --color-text-tertiary: #6e1f2b;
+  --color-text-inverse: #fbf6ee;
+  /* Muted body copy, 6.9:1 on ivory */
+  --color-text-muted: #5e534b;
+  /* Gold is only 2.2:1 on ivory (fails AA, guide §32 "Contrast").
+     For small gold text on light surfaces use this deepened gold (5:1). */
+  --color-accent-text: #9a5a12;
+
+  --color-surface-page: #fbf6ee;
+  --color-surface-card: #ffffff;
+  --color-surface-soft: #f5ede4;
+  --color-surface-primary: #6e1f2b;
+  --color-surface-accent-soft: rgba(232, 155, 60, 0.12);
+  --color-border-subtle: rgba(42, 33, 28, 0.13);
+
+  --motion-duration-instant: 300ms;
+  --motion-duration-fast: 400ms;
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --header-h: 76px;
+  --mobile-bar-h: 64px;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: calc(var(--header-h) + 16px);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+  body {
+    @apply bg-ivory font-serif text-base text-ink antialiased;
+    overflow-x: hidden;
+  }
+  /* Keep content clear of the mobile booking bar (guide §9) */
+  @media (max-width: 899px) {
+    body {
+      padding-bottom: calc(var(--mobile-bar-h) + env(safe-area-inset-bottom));
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-medium text-maroon;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  ::selection {
+    background: var(--color-surface-accent-soft);
+    color: var(--color-brand-primary);
+  }
+  /* Guide §25: focus-visible ring, never removed */
+  :focus-visible {
+    outline: 3px solid var(--color-brand-accent);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+  [id] {
+    scroll-margin-top: calc(var(--header-h) + 16px);
+  }
+}
+
+@layer components {
+  .container-site {
+    @apply mx-auto w-full max-w-container px-6;
+  }
+  .container-wide {
+    @apply mx-auto w-full max-w-wide px-6;
+  }
+  /* Guide §5 section spacing: mobile 55–70, tablet 70–90, desktop 90–120 */
+  .section {
+    @apply py-[60px] sm:py-[80px] md:py-[104px];
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-s3 text-xs font-semibold uppercase tracking-[2px] text-gold-text;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply block h-px w-7 bg-gold;
+  }
+  .eyebrow-inverse {
+    @apply text-gold;
+  }
+  .heading-hero {
+    font-size: clamp(40px, 6vw, 72px);
+    line-height: 1.07;
+    @apply font-medium tracking-[-0.01em];
+  }
+  .heading-section {
+    font-size: clamp(32px, 3.6vw, 48px);
+    line-height: 1.12;
+    @apply font-medium tracking-[-0.005em];
+  }
+  .heading-card {
+    @apply text-xl font-medium sm:text-2xl;
+  }
+  .lead {
+    @apply text-base text-ink-muted md:text-[17px] md:leading-[29px];
+  }
+
+  /* Buttons — guide §25. All states defined: hover, focus-visible, active, disabled, loading */
+  .btn {
+    @apply inline-flex min-h-[48px] items-center justify-center gap-s3 whitespace-nowrap rounded-lg px-7 text-md font-semibold
+      transition-[background-color,color,border-color,transform] duration-instant ease-brand
+      active:translate-y-px disabled:pointer-events-none disabled:opacity-55 aria-disabled:pointer-events-none aria-disabled:opacity-55;
+  }
+  .btn-primary {
+    @apply btn bg-maroon text-cream hover:bg-gold hover:text-ink active:bg-maroon-deep active:text-cream;
+  }
+  .btn-secondary {
+    @apply btn border border-maroon bg-transparent text-maroon hover:bg-maroon hover:text-cream active:bg-maroon-deep;
+  }
+  /* Variants for maroon / photographic backgrounds */
+  .btn-light {
+    @apply btn bg-cream text-maroon hover:bg-gold hover:text-ink;
+  }
+  .btn-outline-light {
+    @apply btn border border-cream/70 bg-transparent text-cream hover:border-cream hover:bg-cream hover:text-maroon;
+  }
+  .btn-sm {
+    @apply min-h-[44px] px-5 text-sm;
+  }
+
+  .link-arrow {
+    @apply inline-flex items-center gap-s2 font-semibold text-maroon underline-offset-4 hover:underline;
+  }
+  .link-arrow svg {
+    @apply transition-transform duration-instant ease-brand;
+  }
+  .link-arrow:hover svg,
+  .group:hover .link-arrow svg {
+    transform: translateX(4px);
+  }
+
+  .img-zoom {
+    @apply transition-transform duration-fast ease-brand;
+  }
+  .group:hover .img-zoom {
+    transform: scale(1.025);
+  }
+
+  /* Visible marker for content the hotel team still has to supply (brief §5) */
+  .pending {
+    @apply rounded-xs border border-dashed border-gold-text/60 bg-[var(--color-surface-accent-soft)] px-s2 py-px font-sans text-[0.85em] font-medium not-italic text-gold-text;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  .on-dark .pending {
+    @apply border-gold/60 text-gold;
+  }
+
+  /* Form controls — guide §27 */
+  .field-label {
+    @apply mb-s2 block text-sm font-semibold text-ink;
+  }
+  .field-input {
+    @apply block min-h-[48px] w-full rounded-xs border border-line bg-white px-s6 text-base text-ink
+      transition-[border-color,box-shadow] duration-instant placeholder:text-ink-muted/70
+      hover:border-ink/30 focus:border-maroon focus:outline-none focus:ring-2 focus:ring-gold/60
+      aria-[invalid=true]:border-[#B3261E];
+  }
+  .field-error {
+    @apply mt-s1 flex items-center gap-s1 text-sm text-[#B3261E];
+  }
+
+  /* Reveal on scroll (components/Reveal.tsx). Content stays visible without JS. */
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity var(--motion-duration-fast) var(--ease-brand),
+      transform var(--motion-duration-fast) var(--ease-brand);
+  }
+  .js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Long-form article typography (blog + policies) */
+@layer components {
+  .prose-shiv {
+    @apply max-w-prose text-[17px] leading-[30px] text-ink;
+  }
+  .prose-shiv > * + *,
+  .prose-shiv > div > * + * {
+    margin-top: 1.1em;
+  }
+  .prose-shiv h2 {
+    @apply mt-12 text-[28px] leading-[36px] md:text-[32px] md:leading-[40px];
+  }
+  .prose-shiv h3 {
+    @apply mt-8 text-[21px] leading-[30px] font-semibold;
+  }
+  .prose-shiv a:not([class]) {
+    @apply font-medium text-maroon underline decoration-gold decoration-2 underline-offset-4 hover:decoration-maroon;
+  }
+  .prose-shiv ul,
+  .prose-shiv ol {
+    @apply space-y-2 pl-6;
+  }
+  .prose-shiv ul {
+    list-style: disc;
+  }
+  .prose-shiv ol {
+    list-style: decimal;
+  }
+  .prose-shiv li::marker {
+    color: var(--color-accent-text);
+  }
+  .prose-shiv strong {
+    @apply font-semibold text-ink;
+  }
+  .prose-shiv blockquote {
+    @apply border-l-2 border-gold pl-5 italic text-ink-muted;
+  }
+  .prose-shiv table {
+    @apply w-full border-collapse text-[15px];
+  }
+  .prose-shiv th,
+  .prose-shiv td {
+    @apply border-b border-line px-3 py-3 text-left align-top;
+  }
+  .prose-shiv th {
+    @apply font-semibold text-maroon;
+  }
+  .prose-shiv hr {
+    @apply my-10 border-line;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

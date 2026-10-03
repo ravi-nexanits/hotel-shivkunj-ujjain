@@ -1,0 +1,22 @@
+# Apache config for the static export (current hotel-shivkunj.com hosting).
+ErrorDocument 404 /404.html
+
+# Keep old WordPress URLs working (brief: preserve SEO-relevant URLs, add redirects)
+RedirectMatch 301 ^/about-us/?$ /about/
+RedirectMatch 301 ^/contact-us/?$ /contact/
+RedirectMatch 301 ^/blog-news/?$ /blog/
+RedirectMatch 301 ^/mahakal-darshan-guide/?$ /blog/mahakaleshwar-temple-darshan-guide/
+RedirectMatch 301 ^/2-day-ujjain-pilgrimage-sightseeing-plan/?$ /blog/2-day-ujjain-travel-itinerary/
+RedirectMatch 301 ^/terms-conditions/?$ /terms-and-conditions/
+RedirectMatch 301 ^/refund-cancellation-policy/?$ /cancellation-policy/
+RedirectMatch 301 ^/category/(news-ujjain|ujjain-destination)/?$ /blog/
+RedirectMatch 301 ^/feed/?$ /blog/
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
