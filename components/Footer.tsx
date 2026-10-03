@@ -82,7 +82,17 @@ export function Footer() {
       <div className="border-t border-cream/15">
         <div className="container-wide flex flex-col gap-2 py-6 text-sm text-cream/70 sm:flex-row sm:items-center sm:justify-between">
           <p>© {year} Shivkunj. All rights reserved.</p>
-          <p>Ujjain, Madhya Pradesh</p>
+          <p>
+            Design &amp; deployment by{" "}
+            <a
+              href="https://nexanits.com/"
+              target="_blank"
+              rel="noopener"
+              className="font-semibold text-cream underline decoration-gold/60 underline-offset-4 hover:text-gold"
+            >
+              Nexan Tech
+            </a>
+          </p>
         </div>
       </div>
     </footer>
