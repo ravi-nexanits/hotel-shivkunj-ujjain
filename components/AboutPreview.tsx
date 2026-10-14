@@ -9,8 +9,8 @@ export function AboutPreview() {
         <div className="reveal relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-md bg-sand">
             <Image
-              src="/images/entrance-day.webp"
-              alt="The Shivkunj entrance with potted plants and a wooden ceiling"
+              src="/images/exterior-dusk.webp"
+              alt="The Shivkunj hotel building at dusk, with lit balconies and plants on every floor"
               fill
               sizes="(min-width: 900px) 46vw, 100vw"
               className="object-cover"

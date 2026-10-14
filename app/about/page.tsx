@@ -11,7 +11,7 @@ export const metadata: Metadata = buildMetadata({
   description:
     "Shivkunj is a family-managed hotel on the Indore–Ujjain Road, created to give pilgrims and families a clean, peaceful and welcoming place to stay in Ujjain.",
   path: "/about/",
-  image: "/images/exterior.webp",
+  image: "/images/exterior-dusk.webp",
   imageAlt: "The Shivkunj hotel building in Ujjain",
 });
 

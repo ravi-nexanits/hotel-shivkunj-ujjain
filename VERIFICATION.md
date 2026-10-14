@@ -28,7 +28,7 @@ grep -rn "Pending\|Verify>" app components content
 - ~~Deluxe Room child policy~~: confirmed 2026-10-03 (2 adults + 1 child, child at no extra charge).
 - Extra-bed rate, if it should be published. → `data/rooms.ts`
 - Whether starting prices vary by date/season (the Rooms page says "may vary by date" — adjust if not).
-- **Distance from Shivkunj** to Mahakaleshwar, Mahakal Lok, Ram Ghat, Kal Bhairav, Harsiddhi and Sandipani Ashram. → `data/destinations.ts`
+- ~~Distance from Shivkunj to temples~~: confirmed 2026-10-14 (Mahakaleshwar 9.8 km/22 min, Mahakal Lok 10 km/23 min, Ram Ghat 11.5 km/31 min, Kal Bhairav 22.1 km/40 min, Harsiddhi 12.1 km/27 min, Sandipani Ashram 18.8 km/36 min).
 - **Genuine guest reviews** (with permission) and the public Google reviews link. → `data/testimonials.ts`
 - ~~Policy text~~: written 2026-10-03 for Privacy, Terms and Cancellation (no-refund policy). Have them reviewed by the hotel's legal adviser. The cancellation policy includes a clause that the hotel returns payment if it cannot provide a confirmed room for reasons within its control; remove it if the owner does not agree.
 - Exact **Google Maps place URL** and **coordinates** (for directions + schema). → `data/hotel.ts`
@@ -45,12 +45,12 @@ grep -rn "Pending\|Verify>" app components content
 
 Each starter article marks time-sensitive facts with `<Verify>`:
 Mahakaleshwar quick-darshan fee, Bhasma Aarti reporting time and dress code,
-Mahakal Lok timings/entry, Simhastha dates, and travel time from Shivkunj.
+Mahakal Lok timings/entry and Simhastha dates.
 
 ## 5. Photos
 
 - All room, reception, entrance and lounge photos come from the current hotel site.
-- **`exterior` has a Gemini edit watermark** (sparkle, bottom-right), which suggests the photo was AI-enhanced. Please replace it with an unedited exterior photo.
+- ~~Watermarked exterior photo~~: replaced 2026-10-14 with a clean exterior shot supplied by the hotel (`exterior-dusk`), now used on the homepage and in schema.
 - Two images on the current site were AI-generated (`ChatGPT-Image-…`). They are **not used**.
 - Temple photos come from the supplied `Temple images.zip`. Confirm usage rights.
 - Still wanted: bathroom, parking, balcony, and a clearly family-sized room.

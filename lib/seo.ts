@@ -78,7 +78,7 @@ export function hotelSchema() {
     slogan: hotel.tagline,
     url: SITE_URL,
     logo: absoluteUrl("/logo-maroon.png"),
-    image: [absoluteUrl("/images/exterior-1280.webp"), absoluteUrl("/images/room-wide-warm-1280.webp")],
+    image: [absoluteUrl("/images/exterior-dusk-1280.webp"), absoluteUrl("/images/room-wide-warm-1280.webp")],
     telephone: hotel.phone,
     email: hotel.email,
     address: {

@@ -10,7 +10,7 @@ const OUT = "public/images";
 const WIDTHS = [320, 640, 960, 1280, 1920];
 const SKIP = new Set(["logo.png", "logo-mark.png"]);
 // Sources that arrive with a white frame baked in
-const TRIM = new Set(["mahakal-night.jpg"]);
+const TRIM = new Set(["mahakal-night.jpg", "exterior-dusk.jpg"]);
 
 fs.mkdirSync(OUT, { recursive: true });
 
