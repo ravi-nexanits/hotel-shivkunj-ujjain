@@ -29,7 +29,7 @@ grep -rn "Pending\|Verify>" app components content
 - Extra-bed rate, if it should be published. → `data/rooms.ts`
 - Whether starting prices vary by date/season (the Rooms page says "may vary by date" — adjust if not).
 - ~~Distance from Shivkunj to temples~~: confirmed 2026-10-14 (Mahakaleshwar 9.8 km/22 min, Mahakal Lok 10 km/23 min, Ram Ghat 11.5 km/31 min, Kal Bhairav 22.1 km/40 min, Harsiddhi 12.1 km/27 min, Sandipani Ashram 18.8 km/36 min).
-- **Genuine guest reviews** (with permission) and the public Google reviews link. → `data/testimonials.ts`
+- ~~Guest reviews~~: 4 genuine 5★ Google reviews added 2026-10-14, copied word-for-word from the hotel's Google profile (only trailing emoji removed; names shortened). Swap them any time in `data/testimonials.ts`.
 - ~~Policy text~~: written 2026-10-03 for Privacy, Terms and Cancellation (no-refund policy). Have them reviewed by the hotel's legal adviser. The cancellation policy includes a clause that the hotel returns payment if it cannot provide a confirmed room for reasons within its control; remove it if the owner does not agree.
 - Exact **Google Maps place URL** and **coordinates** (for directions + schema). → `data/hotel.ts`
 - **Social media URLs** (Facebook, Instagram, YouTube). → `data/hotel.ts → social`
@@ -37,7 +37,7 @@ grep -rn "Pending\|Verify>" app components content
 
 ## 3. Deliberately held back until confirmed
 
-- **"Rated 4.8/5" and "80+ Google reviews"** appear on the current site. They're hidden (`hotel.rating.show = false`), and `aggregateRating` schema is only emitted once they're shown.
+- ~~Google rating~~: verified 2026-10-14 as 4.9 ★ from 143 reviews and shown in the reviews section. Update `hotel.rating` from time to time. No aggregateRating schema is emitted on purpose, because Google ignores ratings a business publishes about itself.
 - **10% advance / group booking offer** from the current site. Hidden (`hotel.offers.show = false`).
 - **"Wheelchair Accessible"** is listed on the current Rooms page. Left out until step-free access is confirmed.
 

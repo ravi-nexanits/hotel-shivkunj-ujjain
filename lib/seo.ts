@@ -99,15 +99,8 @@ export function hotelSchema() {
   if (hotel.checkOutTime24) schema.checkoutTime = hotel.checkOutTime24;
   const sameAs = Object.values(hotel.social).filter(Boolean);
   if (sameAs.length) schema.sameAs = sameAs;
-  // aggregateRating is deliberately only emitted once the rating is verified and shown on-page
-  if (hotel.rating.show) {
-    schema.aggregateRating = {
-      "@type": "AggregateRating",
-      ratingValue: hotel.rating.value,
-      reviewCount: hotel.rating.count,
-      bestRating: 5,
-    };
-  }
+  // No aggregateRating: Google treats ratings a business publishes about itself as
+  // "self-serving" and ignores or penalises them. The Google rating is shown on-page only.
   return schema;
 }
 

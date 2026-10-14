@@ -61,12 +61,8 @@ export const hotel = {
     youtube: "",
   },
 
-  /**
-   * The current About page shows "Rated 4.8/5" and the homepage "80+ Google reviews".
-   * Kept hidden until the live Google figure is checked — set show: true and
-   * update the numbers once verified.
-   */
-  rating: { show: false, value: 4.8, count: 80, source: "Google" },
+  /** Google rating, checked on the hotel's Google profile 2026-10-14. Update periodically. */
+  rating: { show: true, value: 4.9, count: 143, source: "Google", checked: "October 2026" },
 
   /** Ask before publishing: the current site advertises 10% off advance and group bookings. */
   offers: { show: false, text: "10% off on advance and group bookings" },

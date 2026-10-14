@@ -1,19 +1,33 @@
 import { Quote, Star } from "lucide-react";
 import { testimonials, reviewsUrl } from "@/data/testimonials";
+import { hotel } from "@/data/hotel";
 import { SectionHeading } from "./SectionHeading";
 import { Pending } from "./Pending";
 
 /**
  * Shows genuine reviews from data/testimonials.ts. With no reviews supplied it
- * renders three marked placeholders — never invented quotes.
+ * renders three marked placeholders — never invented quotes. Up to four are shown.
  */
 export function Testimonials() {
-  const items = testimonials.slice(0, 3);
+  const items = testimonials.slice(0, 4);
+  const { rating } = hotel;
   return (
     <section aria-labelledby="reviews-title" className="section bg-white">
       <div className="container-wide">
         <SectionHeading id="reviews-title" eyebrow="Guest Stories" title="What Our Guests Say" align="center" />
-        <ul className="mt-12 grid gap-6 md:grid-cols-3">
+        {rating.show && (
+          <p className="reveal mt-6 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-md text-ink">
+            <span className="flex gap-0.5" aria-hidden>
+              {Array.from({ length: 5 }, (_, i) => (
+                <Star key={i} size={18} className="fill-gold text-gold" />
+              ))}
+            </span>
+            <span>
+              <strong className="text-maroon">{rating.value}</strong> out of 5 from {rating.count} {rating.source} reviews
+            </span>
+          </p>
+        )}
+        <ul className={`mt-12 grid gap-6 ${items.length > 3 ? "sm:grid-cols-2 lg:grid-cols-4" : "md:grid-cols-3"}`}>
           {items.length
             ? items.map((t) => (
                 <li key={t.name + t.quote.slice(0, 12)} className="reveal flex flex-col rounded-sm border border-line bg-ivory p-7">
@@ -25,7 +39,7 @@ export function Testimonials() {
                       ))}
                     </p>
                   )}
-                  <blockquote className="mt-4 flex-1 text-base italic text-ink">“{t.quote}”</blockquote>
+                  <blockquote className="mt-4 flex-1 text-md italic leading-[26px] text-ink">“{t.quote}”</blockquote>
                   <p className="mt-6 text-sm font-semibold text-maroon">{t.name}</p>
                   <p className="text-xs text-ink-muted">{t.source} review{t.date ? ` · ${t.date}` : ""}</p>
                 </li>
